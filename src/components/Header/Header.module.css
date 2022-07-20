@@ -1,0 +1,26 @@
+.Header {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(219, 219, 219, 0.75);
+}
+
+.Header_Item {
+    flex: 1;
+    text-align: center;
+    font-size:24px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.Header_Item_Value {
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 2px;
+    background-color: white;
+    text-align: center;
+    font-size:24px;
+}

@@ -1,0 +1,30 @@
+.word {
+    margin-right: 5px;
+    padding: 5px;
+    font-size: 36px;
+}
+
+.active_word {
+    background-color: rgb(58, 58, 58);
+    color: rgb(182, 181, 181);
+}
+
+.correct_word {
+    color: rgb(0, 94, 255);
+}
+
+.incorrect_word {
+    color: rgb(255, 43, 32);
+}
+
+.correct_letter {
+    color: white;
+}
+
+.incorrect_letter {
+    color: rgb(255, 43, 32);;
+}
+
+.incorrect_letter_no_style {
+    color: #000;
+}

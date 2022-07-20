@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// components
+import Word from './components/Word'
+import Header from './components/Header'
+
+// hooks
+import useTyping from './hooks/useTyping'
+import useTimer from './hooks/useTimer'
+
+// styles
+import './App.css'
+import TypingInput from './components/TypingInput'
 
 function App() {
+  const { attempt, words, currentWord, attemptHistory, mistakesHistory, hasStarted, handleAttemptChange, handleKeyUp, resetState } = useTyping()
+  const { timer } = useTimer({ start: 60, shouldStart: hasStarted, onEnd: () => resetState() })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App_Container">
+      <div className="App">
+        <Header mistakesHistory={mistakesHistory} attemptHistory={attemptHistory} timer={timer} />
+        <div className="words">
+          {words.map((word: string, idx: number) => (
+            <Word key={word} word={word} isActive={word === currentWord} attempt={(word === currentWord) ? attempt : attemptHistory[idx]} />
+          ))}
+        </div>
+        <TypingInput attempt={attempt} handleAttemptChange={handleAttemptChange} handleKeyUp={handleKeyUp} />
+      </div>
     </div>
   );
 }
